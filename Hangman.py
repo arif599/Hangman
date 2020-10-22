@@ -1,8 +1,24 @@
-
+import WordSupply
 
 def main():
     print("Starting a game of Hangman...\n")
     welcome()
+
+def startgame(attempts_int, wordLength_int):
+
+    gameWord_str = WordSupply.pickWord(wordLength_int)
+    print("GAME WORD:", "*" * len(gameWord_str)) 
+
+    #loop, chagne to true
+    while "*" in gameWord_str:
+        userGuess_char = input("Enter a character: ")
+        
+        if userGuess_char in gameWord_str:
+            newGameWord_str = (gameWord_str).replace(userGuess_char, "*")
+            print(f"GAME WORD: {newGameWord_str}")
+
+
+        
 
 def welcome():
 
@@ -22,7 +38,17 @@ def welcome():
 
         break
 
-    
+    startgame(attempts_int, wordLength_int)
+
+
+
+
+
+
+
+
+
+
 
 
 
